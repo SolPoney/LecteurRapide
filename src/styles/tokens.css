@@ -1,0 +1,208 @@
+/* ============================================================
+   LECTEURRAPIDE — Design Tokens
+   Source of Truth: design-system/MASTER.md
+   ============================================================ */
+
+/* Google Fonts — preloaded via index.html */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* OpenDyslexic — self-hosted via CDN fallback */
+@font-face {
+  font-family: 'OpenDyslexic';
+  src: url('https://cdn.jsdelivr.net/npm/open-dyslexic@1.0.3/open-dyslexic-regular.woff') format('woff');
+  font-weight: 400;
+  font-display: swap;
+}
+
+/* Luciole — police française pour malvoyants, self-hosted */
+@font-face {
+  font-family: 'Luciole';
+  src: url('/fonts/luciole/Luciole-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Luciole';
+  src: url('/fonts/luciole/Luciole-Regular-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Luciole';
+  src: url('/fonts/luciole/Luciole-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Luciole';
+  src: url('/fonts/luciole/Luciole-Bold-Italic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ── Font Stacks ─────────────────────────────────────────── */
+:root {
+  --font-sans:     'Inter', system-ui, -apple-system, sans-serif;
+  --font-serif:    'Playfair Display', Georgia, serif;
+  --font-mono:     'JetBrains Mono', 'Fira Code', monospace;
+  --font-dyslexic: 'OpenDyslexic', Arial, sans-serif;
+  --font-luciole:  'Luciole', Arial, sans-serif;
+}
+
+/* ── Type Scale ──────────────────────────────────────────── */
+:root {
+  --text-xs:   0.75rem;
+  --text-sm:   0.875rem;
+  --text-base: 1rem;
+  --text-lg:   1.125rem;
+  --text-xl:   1.25rem;
+  --text-2xl:  1.5rem;
+  --text-3xl:  1.875rem;
+
+  /* RSVP Word sizes — fluid with clamp() */
+  --text-word-sm: clamp(2rem,   5vw, 3rem);
+  --text-word-md: clamp(3rem,   8vw, 5rem);
+  --text-word-lg: clamp(4rem,  10vw, 7rem);
+}
+
+/* ── Spacing (8dp grid) ──────────────────────────────────── */
+:root {
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+}
+
+/* ── Shadows ─────────────────────────────────────────────── */
+:root {
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* ── Radii ───────────────────────────────────────────────── */
+:root {
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   12px;
+  --radius-xl:   16px;
+  --radius-full: 9999px;
+}
+
+/* ── Transitions ─────────────────────────────────────────── */
+:root {
+  --transition-fast:   150ms ease;
+  --transition-base:   200ms ease;
+  --transition-slow:   300ms ease;
+  --transition-theme:  250ms ease;
+}
+
+/* ── Z-index scale ───────────────────────────────────────── */
+:root {
+  --z-base:    0;
+  --z-above:   10;
+  --z-panel:   20;
+  --z-controls: 100;
+  --z-progress: 200;
+  --z-modal:   1000;
+}
+
+/* ══════════════════════════════════════════════════════════
+   LIGHT THEME (default)
+   ════════════════════════════════════════════════════════ */
+:root {
+  /* Surfaces */
+  --color-bg:            #FAFAF9;
+  --color-surface:       #FFFFFF;
+  --color-surface-muted: #F5F5F4;
+
+  /* Text */
+  --color-fg:            #1C1917;   /* 17.5:1 on BG — AAA */
+  --color-fg-muted:      #57534E;   /* 6.5:1 on BG  — AA */
+  --color-fg-subtle:     #A8A29E;   /* 3.1:1 — large text only */
+
+  /* Structural */
+  --color-border:        #E7E5E4;
+
+  /* Brand */
+  --color-primary:       #0D9488;
+  --color-on-primary:    #FFFFFF;
+  --color-primary-hover: #0F766E;
+
+  /* ORP pivot letter — WCAG AA 4.5:1 */
+  --color-orp:           #DC2626;
+
+  /* Accent */
+  --color-accent:        #EA580C;
+
+  /* Semantic */
+  --color-success:       #16A34A;
+  --color-warning:       #D97706;
+  --color-destructive:   #DC2626;
+
+  /* Word display zone — warm parchment for long sessions */
+  --color-word-bg:       #FFFBEB;
+  --color-word-text:     #1C1917;
+
+  /* Fixation guide line */
+  --color-fixation:      rgba(220, 38, 38, 0.25);
+
+  /* Reading font (user-switchable) */
+  --font-reading:        var(--font-sans);
+  --word-size:           var(--text-word-md);
+
+  color-scheme: light;
+}
+
+/* ══════════════════════════════════════════════════════════
+   DARK THEME
+   ════════════════════════════════════════════════════════ */
+[data-theme='dark'] {
+  /* Surfaces */
+  --color-bg:            #0C0A09;
+  --color-surface:       #1C1917;
+  --color-surface-muted: #292524;
+
+  /* Text */
+  --color-fg:            #F5F5F4;   /* 16.8:1 on BG — AAA */
+  --color-fg-muted:      #A8A29E;   /* 5.2:1 on BG  — AA */
+  --color-fg-subtle:     #78716C;   /* 3.0:1 — large text only */
+
+  /* Structural */
+  --color-border:        #292524;
+
+  /* Brand */
+  --color-primary:       #14B8A6;
+  --color-on-primary:    #0C0A09;
+  --color-primary-hover: #0D9488;
+
+  /* ORP pivot letter — 4.5:1 on dark BG */
+  --color-orp:           #EF4444;
+
+  /* Accent */
+  --color-accent:        #F97316;
+
+  /* Semantic */
+  --color-success:       #22C55E;
+  --color-warning:       #F59E0B;
+  --color-destructive:   #EF4444;
+
+  /* Word display zone — warm near-black */
+  --color-word-bg:       #1C1917;
+  --color-word-text:     #F5F5F4;
+
+  --color-fixation:      rgba(239, 68, 68, 0.3);
+
+  color-scheme: dark;
+}

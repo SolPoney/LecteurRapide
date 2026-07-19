@@ -1,0 +1,97 @@
+/* ── Word Display Zone ───────────────────────────────────────────────────────
+   The pivot column is pinned at 50% of the parent via a flex trick:
+   before = right-aligned in a fixed-min-width slot
+   pivot  = the center anchor
+   after  = left-aligned in a fixed-min-width slot
+   ──────────────────────────────────────────────────────────────────────────── */
+
+.zone {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 38vh;
+  min-height: 220px;
+  background: var(--color-word-bg);
+  border-radius: var(--radius-xl);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.04),
+    var(--shadow-lg);
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* ── Sizes ───────────────────────────────────────────────── */
+.size-sm { --word-size: var(--text-word-sm); }
+.size-md { --word-size: var(--text-word-md); }
+.size-lg { --word-size: var(--text-word-lg); }
+
+/* ── Vertical fixation guide line ────────────────────────── */
+.fixationLine {
+  position: absolute;
+  top: 14%;
+  bottom: 14%;
+  left: 50%;
+  width: 1.5px;
+  transform: translateX(-50%);
+  background: var(--color-fixation);
+  border-radius: var(--radius-full);
+  pointer-events: none;
+}
+
+/* ── Word wrapper (flash target) ─────────────────────────── */
+.wordWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* ── Word row: [before][pivot][after] ────────────────────── */
+.wordRow {
+  display: flex;
+  align-items: baseline;
+  font-size: var(--word-size, var(--text-word-md));
+  font-family: var(--font-reading);
+  font-weight: 700;
+  line-height: 1;
+  position: relative;
+}
+
+.before {
+  display: inline-block;
+  text-align: right;
+  min-width: 8ch;
+  color: var(--color-word-text);
+  letter-spacing: 0.01em;
+}
+
+.pivot {
+  display: inline-block;
+  color: var(--color-orp);
+  font-weight: 900;
+  letter-spacing: 0.01em;
+}
+
+.after {
+  display: inline-block;
+  text-align: left;
+  min-width: 8ch;
+  color: var(--color-word-text);
+  letter-spacing: 0.01em;
+}
+
+/* ── Flash animation on word change ──────────────────────── */
+.flash {
+  animation: wordFlash 90ms ease-out forwards;
+}
+
+@keyframes wordFlash {
+  0%   { opacity: 0.15; }
+  100% { opacity: 1;    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flash { animation: none; opacity: 1; }
+}
