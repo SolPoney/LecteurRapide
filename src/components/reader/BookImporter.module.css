@@ -187,6 +187,115 @@
   outline-offset: 2px;
 }
 
+/* ── Tabs ─────────────────────────────────────────────────── */
+.tabs {
+  display: flex;
+  gap: var(--space-1);
+  background: var(--color-surface-muted);
+  border-radius: var(--radius-md);
+  padding: 3px;
+  width: 100%;
+  max-width: 440px;
+}
+
+.tab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border: none;
+  border-radius: calc(var(--radius-md) - 2px);
+  background: transparent;
+  color: var(--color-fg-muted);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.tabActive {
+  background: var(--color-surface);
+  color: var(--color-fg);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ── Paste zone ───────────────────────────────────────────── */
+.pasteZone {
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.pasteTitle {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  color: var(--color-fg);
+  font-size: var(--text-sm);
+  font-family: inherit;
+  outline: none;
+  transition: border-color var(--transition-fast);
+  box-sizing: border-box;
+}
+
+.pasteTitle:focus {
+  border-color: var(--color-primary);
+}
+
+.pasteArea {
+  width: 100%;
+  padding: var(--space-4);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  color: var(--color-fg);
+  font-size: var(--text-sm);
+  font-family: inherit;
+  line-height: 1.6;
+  resize: vertical;
+  outline: none;
+  transition: border-color var(--transition-fast);
+  box-sizing: border-box;
+  min-height: 180px;
+}
+
+.pasteArea:focus {
+  border-color: var(--color-primary);
+}
+
+.pasteArea::placeholder,
+.pasteTitle::placeholder {
+  color: var(--color-fg-subtle);
+}
+
+.pasteSubmit {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.pasteSubmit:hover:not(:disabled) {
+  background: var(--color-primary-hover);
+}
+
+.pasteSubmit:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
 /* ── Shortcuts footer ─────────────────────────────────────── */
 .shortcuts {
   position: fixed;
