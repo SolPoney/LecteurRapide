@@ -48,11 +48,11 @@ git push origin feat/ma-fonctionnalite
 
 ## Idées de contributions bienvenues
 
-- 🌍 Traduction de l'interface (EN, ES, DE…)
-- 📄 Support PDF via pdf.js
-- 📱 Meilleure expérience mobile
-- ♿ Améliorations d'accessibilité
-- 🧪 Nouveaux tests unitaires
+- Traduction de l'interface (EN, ES, DE…)
+- Support PDF via pdf.js
+- Meilleure expérience mobile
+- Améliorations d'accessibilité
+- Nouveaux tests unitaires
 
 ## Licence
 
