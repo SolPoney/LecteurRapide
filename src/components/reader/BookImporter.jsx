@@ -4,6 +4,7 @@ import { useApp } from '@/store/AppContext'
 import { ACTION } from '@/store/appStore'
 import { parseEpub } from '@/engine/epubParser'
 import { parseTxt, parseText } from '@/engine/textParser'
+import { parsePdf } from '@/engine/pdfParser'
 import { saveBook, loadBook } from '@/utils/storage'
 import styles from './BookImporter.module.css'
 
@@ -37,9 +38,11 @@ export function BookImporter() {
         book = await parseEpub(file)
       } else if (name.endsWith('.txt')) {
         book = await parseTxt(file)
+      } else if (name.endsWith('.pdf')) {
+        book = await parsePdf(file)
       } else {
         dispatch({ type: ACTION.SET_LOADING, payload: false })
-        dispatch({ type: ACTION.SET_ERROR, payload: 'Format non supporté. Utilisez un fichier .epub ou .txt.' })
+        dispatch({ type: ACTION.SET_ERROR, payload: 'Format non supporté. Utilisez un fichier .epub, .pdf ou .txt.' })
         return
       }
       loadBook_(book)
@@ -134,7 +137,7 @@ export function BookImporter() {
           <input
             ref={inputRef}
             type="file"
-            accept=".epub,.txt"
+            accept=".epub,.pdf,.txt"
             className={styles.hiddenInput}
             onChange={handleInputChange}
           />
@@ -150,7 +153,7 @@ export function BookImporter() {
               <p className={styles.dropLabel}>
                 Déposez un fichier ici
               </p>
-              <p className={styles.dropSub}>.epub ou .txt · cliquez pour parcourir</p>
+              <p className={styles.dropSub}>.epub · .pdf · .txt · cliquez pour parcourir</p>
             </>
           )}
         </div>
