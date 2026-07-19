@@ -4,7 +4,7 @@ import { useKeyboard } from '@/hooks/useKeyboard'
 import { useRsvpPlayer } from '@/hooks/useRsvpPlayer'
 import { WordDisplay } from './WordDisplay'
 import { ControlsBar } from '@/components/controls/ControlsBar'
-import { Sun, Moon } from 'lucide-react'
+import { Sun, Moon, ChevronLeft } from 'lucide-react'
 import styles from './ReaderView.module.css'
 
 export function ReaderView() {
@@ -17,17 +17,32 @@ export function ReaderView() {
   const toggleTheme = () =>
     dispatch({ type: ACTION.SET_THEME, payload: state.theme === 'dark' ? 'light' : 'dark' })
 
+  const goToImport = () => {
+    dispatch({ type: ACTION.SET_PLAYING, payload: false })
+    dispatch({ type: ACTION.LOAD_BOOK,   payload: null  })
+  }
+
   return (
     <main className={styles.view}>
       {/* ── Fixed top header ──────────────────────────────── */}
       <header className={styles.header}>
         <div className={styles.headerInner}>
+          <button
+            className={styles.headerBtn}
+            onClick={goToImport}
+            aria-label="Changer de livre"
+            title="Changer de livre"
+          >
+            <ChevronLeft size={18} aria-hidden="true" />
+          </button>
+
           <div className={styles.headerMeta}>
             <p className={styles.bookTitle}>{state.book?.title}</p>
             <p className={styles.chapterTitle}>
               {chapter?.title ?? `Chapitre ${state.chapterIndex + 1}`}
             </p>
           </div>
+
           <button
             className={styles.headerBtn}
             onClick={toggleTheme}
