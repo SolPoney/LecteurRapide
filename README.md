@@ -1,10 +1,9 @@
 # LecteurRapide
 
-**Lecture RSVP — un mot à la fois, à votre rythme. Dans le navigateur ou en application desktop.**
+**Lecture RSVP — un mot à la fois, à votre rythme.**
 
-LecteurRapide est une application open source de lecture rapide par [RSVP](https://en.wikipedia.org/wiki/Rapid_serial_visual_presentation) (Rapid Serial Visual Presentation). Importez un fichier EPUB, PDF ou TXT, choisissez votre vitesse, et lisez sans bouger les yeux grâce à la méthode Spritz. Disponible en application desktop (Linux, Mac, Windows) ou directement dans le navigateur.
+LecteurRapide est une application open source de lecture rapide par [RSVP](https://en.wikipedia.org/wiki/Rapid_serial_visual_presentation) (Rapid Serial Visual Presentation). Importez un fichier EPUB, PDF ou TXT, choisissez votre vitesse, et lisez sans bouger les yeux grâce à la méthode Spritz. Disponible en application desktop Linux.
 
-[![Live Demo](https://img.shields.io/badge/demo-live-brightgreen?logo=vercel)](https://lecteurrapide.vercel.app)
 [![MIT License](https://img.shields.io/badge/license-MIT-teal.svg)](LICENSE)
 [![Made with React](https://img.shields.io/badge/React-19-61DAFB?logo=react)](https://react.dev)
 [![Built with Vite](https://img.shields.io/badge/Vite-8-646CFF?logo=vite)](https://vite.dev)
@@ -72,14 +71,6 @@ LecteurRapide est une application open source de lecture rapide par [RSVP](https
 | `←` | −5 mots |
 | `↑` | +25 WPM |
 | `↓` | −25 WPM |
-
----
-
-## Essayer sans installer
-
-**[→ Ouvrir la démo live](https://lecteurrapide.vercel.app)**
-
-Aucune installation requise — fonctionne dans le navigateur, vos fichiers restent sur votre machine.
 
 ---
 
