@@ -1,8 +1,8 @@
 # LecteurRapide
 
-**Lecture RSVP dans le navigateur — un mot à la fois, à votre rythme.**
+**Lecture RSVP — un mot à la fois, à votre rythme. Dans le navigateur ou en application desktop.**
 
-LecteurRapide est une application web open source de lecture rapide par [RSVP](https://en.wikipedia.org/wiki/Rapid_serial_visual_presentation) (Rapid Serial Visual Presentation). Importez un fichier EPUB, choisissez votre vitesse, et lisez sans bouger les yeux grâce à la méthode Spritz.
+LecteurRapide est une application open source de lecture rapide par [RSVP](https://en.wikipedia.org/wiki/Rapid_serial_visual_presentation) (Rapid Serial Visual Presentation). Importez un fichier EPUB, PDF ou TXT, choisissez votre vitesse, et lisez sans bouger les yeux grâce à la méthode Spritz. Disponible en application desktop (Linux, Mac, Windows) ou directement dans le navigateur.
 
 [![Live Demo](https://img.shields.io/badge/demo-live-brightgreen?logo=vercel)](https://lecteurrapide.vercel.app)
 [![MIT License](https://img.shields.io/badge/license-MIT-teal.svg)](LICENSE)
@@ -75,11 +75,36 @@ LecteurRapide est une application web open source de lecture rapide par [RSVP](h
 
 ---
 
-## 🚀 Essayer sans installer
+## Essayer sans installer
 
 **[→ Ouvrir la démo live](https://lecteurrapide.vercel.app)**
 
 Aucune installation requise — fonctionne dans le navigateur, vos fichiers restent sur votre machine.
+
+---
+
+## Installation desktop
+
+Téléchargez le fichier correspondant à votre système depuis les [releases GitHub](https://github.com/SolPoney/LecteurRapide/releases) :
+
+| Système | Fichier |
+|---|---|
+| Ubuntu / Debian | `.deb` |
+| Fedora / RedHat | `.rpm` |
+| Autre Linux | `.AppImage` |
+| Mac | `.dmg` _(bientôt)_ |
+| Windows | `.msi` _(bientôt)_ |
+
+**Ubuntu / Debian :**
+```bash
+sudo dpkg -i lecteurrapide_0.1.0_amd64.deb
+```
+
+**AppImage (portable, sans installation) :**
+```bash
+chmod +x lecteurrapide_0.1.0_amd64.AppImage
+./lecteurrapide_0.1.0_amd64.AppImage
+```
 
 ---
 
@@ -100,6 +125,15 @@ Ouvrez [http://localhost:5173](http://localhost:5173) dans votre navigateur.
 npm run build   # génère dist/
 ```
 
+### Build desktop
+
+Prérequis : [Rust](https://rustup.rs) + dépendances système (voir [CONTRIBUTING.md](CONTRIBUTING.md))
+
+```bash
+npm run tauri dev    # mode développement (fenêtre native)
+npm run tauri build  # génère .deb, .rpm et .AppImage dans src-tauri/target/release/bundle/
+```
+
 ### Tests
 
 ```bash
@@ -117,6 +151,7 @@ npm test        # 47 tests unitaires
 | [epubjs](https://github.com/futurepress/epub.js) | Parsing EPUB |
 | [Lucide React](https://lucide.dev) | Icônes |
 | [Vitest](https://vitest.dev) | Tests unitaires |
+| [Tauri 2](https://tauri.app) | Application desktop |
 | CSS Modules | Styles scopés |
 
 Architecture : `useReducer` + Context API — aucune lib de state externe.
